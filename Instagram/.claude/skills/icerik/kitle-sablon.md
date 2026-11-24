@@ -39,7 +39,7 @@ Boş kalan satırlar için asistan genel bir hesap varsayar. Elle doldurmak zoru
 - **Haftada kaç paylaşım:** (ör. 3 gönderi + her gün hikaye)
 
 ## Özel günler
-- **Hangi günleri paylaşırım:** (milli bayramlar / dini günler / dünya günleri / eğlence günleri)
+- **Hangi günleri paylaşırım:** (milli bayramlar / dini bayramlar / kandiller / dünya günleri / ticari günler / eğlence günleri)
 - **Hangilerini atlarım:**
 
 ## Tarz

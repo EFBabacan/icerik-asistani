@@ -1,5 +1,16 @@
 # Sürüm notları
 
+## 1.2 (ilk test sonrası düzeltmeler)
+- Karne, incele, kitle ve ay komutları `/` menüsünde ve ipucu satırında görünüyor
+- Soru sınırları netleşti: tek seferde en fazla 3 soru, soru başına en fazla
+  4 seçenek; fikir seçiminde en güçlü 3 kanca + "Sen seç"
+- Tanışmada aynı soru hem yazı hem düğme olarak iki kez çıkmıyor
+- Serbest yazı yolunda ana konular ve yakın kitle soruluyor, uydurulmuyor
+- Tanışmada "kandiller de mi?" soruluyor; şablona kandiller ve ticari günler eklendi
+- "İleride satış" hedefinde her plana satış içeriği konmuyor, takipçiye odaklanılıyor
+- Güncel gündem/akım bulunamazsa uydurmuyor, bölümü atlıyor
+- Ciddi tonlu günlerde kampanya, eğlence ve akım önerilmiyor
+
 ## 1.1
 - Seçimli fikir akışı: konu yazınca asistan önce bulduğu kancaları gösterir,
   hangilerini birleştireceğini, formatı ve kaç fikir istediğini sorar

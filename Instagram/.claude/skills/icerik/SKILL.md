@@ -3,12 +3,13 @@ name: icerik
 description: >-
   Instagram içerik asistanı (Türkçe). Ne paylaşacağını bulur: bu haftanın
   özel günleri, şu anki gündem ve bir konu için Reels, gönderi, hikaye
-  fikirleri, gün gün haftalık paylaşım planı, hesap inceleme. Komutlar: /icerik yardım ·
-  /icerik plan · /icerik hafta · /icerik gündem ·
-  /icerik <konu>. "bu hafta ne var", "gündemde ne var", "ne paylaşsam",
+  fikirleri, gün gün haftalık paylaşım planı, hesap karnesi ve inceleme.
+  Komutlar: /icerik yardım · /icerik plan · /icerik hafta · /icerik ay ·
+  /icerik gündem · /icerik <konu> · /icerik karne · /icerik incele ·
+  /icerik kitle. "bu hafta ne var", "gündemde ne var", "ne paylaşsam",
   "içerik fikri", "bu hafta ne paylaşayım", "hesabımı incele" gibi isteklerde
   ve kullanıcı Instagram ekran görüntüsü attığında da kullan.
-argument-hint: "yardım | incele | plan | plan <konu> | hafta | ay | gündem | gündem <konu> | <konu> | kitle"
+argument-hint: "yardım | plan | <konu> | gündem | hafta | ay | karne | incele | kitle"
 ---
 
 # icerik
@@ -48,14 +49,22 @@ Her şey Türkçe. Bugünün tarihini ortamdan al, asla tahmin etme.
   hareketli günlerin tarihini "doğrulanmadı" diye işaretle.
 - **Alt satır:** her sonucun en altına tek satır ekle (tanışma soruları
   sırasında ekleme):
-  `Diğer komutlar: /icerik plan · /icerik hafta · /icerik gündem · /icerik <konu> · /icerik incele · /icerik yardım`
+  `Diğer komutlar: /icerik plan · /icerik <konu> · /icerik gündem · /icerik hafta · /icerik karne · /icerik yardım`
 - **Soru sorma biçimi:** kullanıcıya seçim yaptıracağın her yerde (fikir
   seçimi, "hangisini tam hazırlayayım?", "hangi günü?", tanışmadaki 3 yol)
-  `AskUserQuestion` aracı varsa onu kullan: tek seferde en fazla 4 soru, her
-  soruda 2-4 kısa seçenek, birden fazla seçilebilecekse çoklu seçim, önerdiğin
-  seçenek ilk sırada ve sonunda "(Önerilen)". Araç yoksa numaralı liste yaz ve
-  "Numarayla cevap ver, ör. `1,3 karusel 3`" de. Düğmelere sığmayan
-  seçenekleri (5-6 kanca) iki soruya böl ya da en güçlü 4'ünü göster.
+  `AskUserQuestion` aracı varsa onu kullan: tek seferde **en fazla 3 soru**,
+  her soruda **2-4 kısa seçenek**, birden fazla seçilebilecekse çoklu seçim,
+  önerdiğin seçenek ilk sırada ve sonunda "(Önerilen)". Araç yoksa numaralı
+  liste yaz ve "Numarayla cevap ver, ör. `1,3 karusel 3`" de. Aynı soruyu hem
+  yazıyla hem düğmeyle sorma: düğme kullanıyorsan yazıda sadece kısa bir
+  giriş cümlesi olsun.
+- **Bulunamayan bilgi:** son 7 güne ait doğrulanmış gündem ya da akım
+  bulamazsan uydurma ve eski haberi yeniymiş gibi verme: "Bu hafta için
+  güncel <gündem/akım> bulamadım" yaz, o bölümü atla, işi özel günler,
+  mevsim ve hesabın ana konularıyla kur.
+- **Ciddi günler:** takvimde "(ciddi ton)" yazan ya da ⚫ işaretli günlerde
+  kampanya, satış, eğlence ve akım önerme. Hesabına uyuyorsa sade bir
+  farkındalık / saygı paylaşımı öner, uymuyorsa "Atla" de.
 - **Komut adı:** eklenti olarak kurulduysa komut `/icerik:icerik` olarak
   görünür (ör. `/icerik:icerik plan`). Menüde ve alt satırda kullanıcının bu
   oturumda kullandığı adı yaz; normal cümleler her iki durumda da çalışır.
@@ -118,7 +127,10 @@ Amaç: kullanıcı hiçbir dosyaya dokunmadan `kitle.md` dolsun.
 
 1. bilgi klasöründeki `kitle.md` dosyasını oku; doluysa özetini göster
    ve "neyi değiştirelim?" diye sor.
-2. Boşsa şu karşılamayla başla (aynen, kısa):
+2. Boşsa karşılamayla başla. `AskUserQuestion` varsa sadece ilk iki cümleyi
+   yaz ve "Hangisi sana kolay?" sorusunu 3 düğmeyle sor (Kendimi yazayım ·
+   Ekran görüntüsü atayım · Sen sor); yazıda 1️⃣2️⃣3️⃣ listesini tekrar etme.
+   Araç yoksa aşağıdaki metnin tamamını aynen yaz:
 
    ```
    👋 Merhaba! Sana uygun fikir verebilmem için önce seni ve hesabını
@@ -133,7 +145,10 @@ Amaç: kullanıcı hiçbir dosyaya dokunmadan `kitle.md` dolsun.
    ```
 
    - **1 (serbest yazı)**: yazdıklarından çıkarabildiğin her şeyi aşağıdaki
-     sorulara yerleştir, **sadece cevabı olmayanları** tek tek sor.
+     sorulara yerleştir, **sadece cevabı olmayanları** tek tek sor. Ana
+     konuları (2) yazmadıysa hesabın konusuna göre 3-4 tane önerip onaylat;
+     yakın kitleyi (3b) yazmadıysa bir öneriyle sor. Hiçbir satırı kendin
+     uydurup sormadan doldurma.
    - **2 (görüntü)**: **S**'ye göre çıkar, görüntüden anlaşılmayanları sor
      (hedef ve "asla yapmam" dedikleri genelde görüntüde olmaz, onları mutlaka sor).
    - **3 (soru-cevap)**: soruları **tek tek ve sırayla** sor, her seferinde
@@ -148,10 +163,14 @@ Amaç: kullanıcı hiçbir dosyaya dokunmadan `kitle.md` dolsun.
       %10 kampanya). Bilmiyorsa hesabın konusuna göre 3-4 tane öner ve
       onaylat.
    3. Kimler takip ediyor / kimler etsin istiyorsun? (yaş, ilgi alanı, şehir)
+   3b. Ana kitlen değil ama ilgilenebilecek kim var? (ör. ev yemekleri
+      hesabı için: öğrenciler, yeni evliler)
    4. Uzak durmak istediğin bir kitle ya da konu var mı? (ör. siyaset)
    5. Hangilerini paylaşıyorsun: Reels, gönderi, karusel, hikaye? Haftada
       kaç paylaşım yapabiliyorsun? (ör. 3 gönderi + her gün hikaye)
-   6. Hangi özel günleri paylaşırsın, hangilerini atlarsın?
+   6. Hangi özel günleri paylaşırsın, hangilerini atlarsın? Dini günlerde
+      sadece bayramlar mı, kandiller de mi? (milli bayramlar / dini bayramlar
+      / kandiller / dünya günleri / ticari günler / eğlence günleri)
    7. Tarzın nasıl: samimi, komik, bilgilendirici, şık? Yüzün görünüyor mu?
    8. Ekipmanın ve bir içeriğe ayırabildiğin süre?
    "Bilmiyorum / geç" cevabını kabul et, o satırı boş bırak.
@@ -160,9 +179,11 @@ Amaç: kullanıcı hiçbir dosyaya dokunmadan `kitle.md` dolsun.
    bir istekle geldiyse (ör. `/icerik plan`) onaydan sonra hemen ona geç.
    Gelmediyse: "Hazırız. İlk iş `/icerik plan` yaz, bu haftanın programını
    çıkarayım."
-5. Hedef ve "asla yapmam" dediklerine bütün önerilerde uy: satış isteyen
-   hesaba her planda en az bir satış/kampanya içeriği koy; "dans etmem"
-   diyene dans akımı önerme.
+5. Hedef ve "asla yapmam" dediklerine bütün önerilerde uy: **şu an** satış
+   isteyen hesaba her planda en az bir satış/kampanya içeriği koy; satışı
+   "ileride" isteyen hesapta (ör. "ileride tarif kitabı") şimdilik takipçi
+   büyütmeye odaklan, ayda bir "yakında / bekleme listesi" içeriği yeterli.
+   "Dans etmem" diyene dans akımı önerme.
 
 ## Hazırlık (A, B, C, D modları)
 
@@ -292,8 +313,9 @@ Taramadan sonra fikirleri uzun uzun yazmadan önce kullanıcıya **bulduğun
 kancaları** göster ve tek seferde en fazla 3 soru sor ("Soru sorma biçimi"ne
 göre):
 
-1. **Hangilerini birleştireyim?** (birden fazla seçilebilir) Bulduğun en
-   güçlü 4-6 kanca, her biri tek satır ve tür işaretiyle:
+1. **Hangilerini birleştireyim?** (birden fazla seçilebilir) Bulduğun **en
+   güçlü 3 kanca + "Sen seç"** (toplam 4 seçenek), her biri tek satır ve tür
+   işaretiyle:
    🥶 mevsim · 📰 gündem · 📅 özel gün · 🎵 akım · ❓ insanların sorusu ·
    🔁 başkasında tutan format. Ör. "🥶 Mevsim dışı: kavanoz/dondurulmuş
    enginar", "❓ 'Enginar nasıl kararmaz?'". Seçenek olarak "Sen seç" de olsun.
