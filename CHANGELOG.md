@@ -1,5 +1,12 @@
 # Sürüm notları
 
+## 1.2.1 (ikinci test sonrası küçük düzeltmeler)
+- Format sorusu en fazla 4 seçenek (düğmelere sığıyor)
+- Tanışmada "kitlen senden ne istiyor?" ve "tepki çekmek istemediğin kitle" soruluyor
+- "Yakında / bekleme listesi" içeriği sadece ayın ilk planında
+- Plan örneğindeki kampanya satırı nötr bir örnekle değişti
+- Ciddi günlerde sıradan içerik paylaşılabilir ama o güne bağlanmaz
+
 ## 1.2 (ilk test sonrası düzeltmeler)
 - Karne, incele, kitle ve ay komutları `/` menüsünde ve ipucu satırında görünüyor
 - Soru sınırları netleşti: tek seferde en fazla 3 soru, soru başına en fazla

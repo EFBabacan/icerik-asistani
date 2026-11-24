@@ -77,6 +77,7 @@ yeni oturumu yine `Instagram` klasöründe aç.
 | `README.md` | Bu kılavuz | Hayır |
 
 ## Sürüm
+- 1.2.1: ikinci test sonrası küçük düzeltmeler
 - 1.2: ilk test sonrası düzeltmeler (menüde karne, net soru sınırları, kandiller, ciddi günler, bulunamayan gündem)
 - 1.1: seçimli fikir akışı, hesap karnesi (/icerik karne), plana en iyi saat
 - 1.0: eklenti olarak kurulum (/plugin install icerik@icerik-asistani), ayrı bilgi klasörü

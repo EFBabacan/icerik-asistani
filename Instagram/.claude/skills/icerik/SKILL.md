@@ -64,7 +64,9 @@ Her şey Türkçe. Bugünün tarihini ortamdan al, asla tahmin etme.
   mevsim ve hesabın ana konularıyla kur.
 - **Ciddi günler:** takvimde "(ciddi ton)" yazan ya da ⚫ işaretli günlerde
   kampanya, satış, eğlence ve akım önerme. Hesabına uyuyorsa sade bir
-  farkındalık / saygı paylaşımı öner, uymuyorsa "Atla" de.
+  farkındalık / saygı paylaşımı öner, uymuyorsa "Atla" de. O gün hesabın
+  sıradan içeriği (ör. bir tarif) paylaşılabilir ama o güne bağlanmaz,
+  neşeli ya da kampanyalı bir dille sunulmaz.
 - **Komut adı:** eklenti olarak kurulduysa komut `/icerik:icerik` olarak
   görünür (ör. `/icerik:icerik plan`). Menüde ve alt satırda kullanıcının bu
   oturumda kullandığı adı yaz; normal cümleler her iki durumda da çalışır.
@@ -147,7 +149,9 @@ Amaç: kullanıcı hiçbir dosyaya dokunmadan `kitle.md` dolsun.
    - **1 (serbest yazı)**: yazdıklarından çıkarabildiğin her şeyi aşağıdaki
      sorulara yerleştir, **sadece cevabı olmayanları** tek tek sor. Ana
      konuları (2) yazmadıysa hesabın konusuna göre 3-4 tane önerip onaylat;
-     yakın kitleyi (3b) yazmadıysa bir öneriyle sor. Hiçbir satırı kendin
+     yakın kitleyi (3b), kitlesinin ne istediğini (3) ve uzak durduğu
+     kitleyi (4; sadece konu söylediyse kitleyi ayrıca) yazmadıysa bir
+     öneriyle sor. Hiçbir satırı kendin
      uydurup sormadan doldurma.
    - **2 (görüntü)**: **S**'ye göre çıkar, görüntüden anlaşılmayanları sor
      (hedef ve "asla yapmam" dedikleri genelde görüntüde olmaz, onları mutlaka sor).
@@ -163,9 +167,12 @@ Amaç: kullanıcı hiçbir dosyaya dokunmadan `kitle.md` dolsun.
       %10 kampanya). Bilmiyorsa hesabın konusuna göre 3-4 tane öner ve
       onaylat.
    3. Kimler takip ediyor / kimler etsin istiyorsun? (yaş, ilgi alanı, şehir)
+      Senden ne istiyorlar ya da ne satın alıyorlar? (ör. pratik tarif,
+      ucuz menü, hazır ürün)
    3b. Ana kitlen değil ama ilgilenebilecek kim var? (ör. ev yemekleri
       hesabı için: öğrenciler, yeni evliler)
-   4. Uzak durmak istediğin bir kitle ya da konu var mı? (ör. siyaset)
+   4. Uzak durmak istediğin bir konu (ör. siyaset) ya da tepki çekmek
+      istemediğin bir kitle (ör. vegan hesapları için et severler) var mı?
    5. Hangilerini paylaşıyorsun: Reels, gönderi, karusel, hikaye? Haftada
       kaç paylaşım yapabiliyorsun? (ör. 3 gönderi + her gün hikaye)
    6. Hangi özel günleri paylaşırsın, hangilerini atlarsın? Dini günlerde
@@ -182,7 +189,8 @@ Amaç: kullanıcı hiçbir dosyaya dokunmadan `kitle.md` dolsun.
 5. Hedef ve "asla yapmam" dediklerine bütün önerilerde uy: **şu an** satış
    isteyen hesaba her planda en az bir satış/kampanya içeriği koy; satışı
    "ileride" isteyen hesapta (ör. "ileride tarif kitabı") şimdilik takipçi
-   büyütmeye odaklan, ayda bir "yakında / bekleme listesi" içeriği yeterli.
+   büyütmeye odaklan; "yakında / bekleme listesi" içeriğini sadece **ayın
+   ilk planına** (ayın 1-7'si arasında yapılan plan) bir kere koy.
    "Dans etmem" diyene dans akımı önerme.
 
 ## Hazırlık (A, B, C, D modları)
@@ -319,8 +327,9 @@ göre):
    🥶 mevsim · 📰 gündem · 📅 özel gün · 🎵 akım · ❓ insanların sorusu ·
    🔁 başkasında tutan format. Ör. "🥶 Mevsim dışı: kavanoz/dondurulmuş
    enginar", "❓ 'Enginar nasıl kararmaz?'". Seçenek olarak "Sen seç" de olsun.
-2. **Format?** Reels / Karusel / Fotoğraf / Hikaye / Karışık. kitle.md'de
-   kullandığı formatlar varsa onları önerilen (ilk) seçenek yap.
+2. **Format?** En fazla 4 seçenek: kitle.md'de kullandığı formatlardan en
+   fazla 3'ü + "Karışık"; kitle.md'de yoksa Reels / Karusel / Hikaye /
+   Karışık. Önerilen format ilk sırada.
 3. **Kaç fikir?** 1 / 3 / 5 (önerilen: 3).
 
 Ton kitle.md'de yoksa 3. soru yerine ton sor (samimi / komik /
@@ -514,7 +523,7 @@ hiçbir şey düşünmeden takip edebilmeli.
 
 | Gün | Format | Ne paylaşacaksın (tek satır) | Neden bu gün | Sütun | Hazırlık |
 | --- | ------ | ---------------------------- | ------------ | ----- | -------- |
-| Pzt 23 Kas | Hikaye | "Bu hafta Efsane Cuma'da ne alacaksın?" anketi | Efsane Cuma'ya 4 gün | kampanya | 5 dk |
+| Pzt 23 Kas | Hikaye | "Bu hafta ne pişirelim?" anketi | Hafta başı, kitleyi dinle | sahne arkası | 5 dk |
 | Sal 24 Kas | Karusel | ... | Öğretmenler Günü | ... | 30 dk |
 
 ## Bu hafta kullanılan akım
