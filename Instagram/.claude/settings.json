@@ -1,0 +1,13 @@
+{
+  "disableBundledSkills": true,
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch",
+      "Read(/.claude/skills/icerik/**)",
+      "Edit(/.claude/skills/icerik/kitle.md)",
+      "Edit(/.claude/skills/icerik/inceleme.md)",
+      "Edit(/.claude/skills/icerik/takvim.md)"
+    ]
+  }
+}

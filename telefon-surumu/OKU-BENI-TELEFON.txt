@@ -1,0 +1,13 @@
+İÇERİK ASİSTANI · TELEFON SÜRÜMÜ
+
+1. Telefona Claude uygulamasını indir, hesap aç.
+2. Projeler → Yeni proje → adı: İçerik Asistanı
+   (Uygulamada proje açma yoksa telefonun tarayıcısından claude.ai'ye gir.)
+3. Bu klasördeki proje-talimati.txt dosyasının TAMAMINI kopyala,
+   projenin "Talimatlar" kısmına yapıştır, kaydet.
+4. Proje içinde yeni sohbet aç, "Web araması" açık olsun, "merhaba" yaz.
+5. Asistan seni tanır. Sonunda verdiği HESABIM yazısını kopyalayıp
+   Talimatlar'ın en altına yapıştır ve kaydet.
+
+Sonra sadece yaz: plan · hafta · gündem · kahve · menü
+Ekran görüntüsü de atabilirsin (profil, istatistik, Reels trendleri).
