@@ -14,8 +14,10 @@ fikir verir; paylaşımı sen yaparsın.
 - **plan**: bu hafta ne paylaşayım? Gün gün hazır program
 - **hafta / ay**: özel günler (milli, dini, anma, dünya, ticari, eğlence)
 - **gündem**: Türkiye'de şu an ne konuşuluyor, hangisine içerik yapılır
-- **<konu>** (ör. `kahve`): gündem + özel gün + akım birleşimiyle 5 hazır fikir
+- **<konu>** (ör. `enginar`): önce bulduğu kancaları gösterir, sen seçersin
+  (hangi kancalar, format, kaç fikir), sonra sadece seçtiğini hazırlar
 - **📸 ekran görüntüsü**: profil, istatistik, kitle, Reels trendleri ekranından öğrenir
+- **karne**: ekran görüntülerinden en iyi paylaşım saati, ne tuttu, yapılacak 5 şey, bio önerisi
 - **incele** (bilgisayar): giriş yaptığın Chrome'dan senin ve benzer hesapların neyle tuttuğunu bulur
 
 İlk mesajda asistan önce seni tanır (kendini birkaç cümleyle yaz, ekran

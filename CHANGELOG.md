@@ -1,5 +1,14 @@
 # Sürüm notları
 
+## 1.1
+- Seçimli fikir akışı: konu yazınca asistan önce bulduğu kancaları gösterir,
+  hangilerini birleştireceğini, formatı ve kaç fikir istediğini sorar
+  (bilgisayarda tıklanabilir düğmeler, telefonda numaralı liste). "hızlı"
+  ya da isteğin içinde format/sayı varsa sormadan üretir
+- Hesap karnesi (`/icerik karne`): ekran görüntülerinden en iyi paylaşım
+  saati, en çok tutan 3 gönderi, yapılacak 5 şey, bırakılacak 3 şey, bio önerisi
+- Plan, karnedeki en iyi saati "Saat" sütunu olarak kullanır
+
 ## 1.0
 - Eklenti olarak kurulum: `/plugin marketplace add EFBabacan/icerik-asistani`,
   `/plugin install icerik@icerik-asistani`

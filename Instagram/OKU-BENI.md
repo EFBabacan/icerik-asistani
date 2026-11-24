@@ -29,6 +29,7 @@ Claude'un yazı kutusuna `/` ile başlayarak yaz:
 | `/icerik kahve` | Kahve için hazır içerik fikirleri |
 | `/icerik hafta kahve` | Bu haftanın özel günleri + kahve fikirleri |
 | `/icerik incele` | Hesabını ve benzer hesapları inceler (giriş yaptığın Chrome üzerinden) |
+| `/icerik karne` | Ekran görüntülerinden hesap karnesi: en iyi saat, ne tuttu, ne yapmalı |
 
 "kahve" yerine kendi konunu yaz: ürün, yemek, mekan, araba, her şey.
 
@@ -76,6 +77,7 @@ yeni oturumu yine `Instagram` klasöründe aç.
 | `README.md` | Bu kılavuz | Hayır |
 
 ## Sürüm
+- 1.1: seçimli fikir akışı, hesap karnesi (/icerik karne), plana en iyi saat
 - 1.0: eklenti olarak kurulum (/plugin install icerik@icerik-asistani), ayrı bilgi klasörü
 - 0.9: "tam hazırla" (aramasız), limit dostu kurallar, kullanıcı adı, küçük düzeltmeler
 - 0.8: önce tanışma (serbest yazı / ekran görüntüsü / soru-cevap), hedef ve "asla yapmam" listesi

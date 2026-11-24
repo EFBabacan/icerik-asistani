@@ -32,6 +32,7 @@ Her şey Türkçe. Bugünün tarihini ortamdan al, asla tahmin etme.
 | `plan`, "bu hafta ne paylaşayım", "paylaşım planı" | **D. Haftalık paylaşım planı** |
 | `plan <konu>` | **D**, plan o konu etrafında |
 | `incele`, "hesabımı incele", `incele @hesap1 @hesap2` | **E. Hesap inceleme** (kullanıcının giriş yaptığı tarayıcıdan okur) |
+| `karne`, "hesabımı analiz et", "ne zaman paylaşayım" | Ekran görüntüsü varsa **S → Hesap karnesi**; yoksa hangi ekranları atacağını söyle (bilgisayarda `incele`'yi de öner) |
 | Kullanıcı Instagram ekran görüntüsü attıysa (girdi ne olursa olsun) | önce **S. Ekran görüntüsünden öğrenme**, sonra istenen mod |
 | Önceki cevaptan bir numara / "2'yi tam hazırla" / "salıyı hazırla" | **T. Tam hazırla** (yeni arama yapmadan) |
 | Önceki cevaba düzeltme: "daha komik", "kısa", "yüzüm görünmesin", "hikayeye çevir" | Aynı sonucu düzelt, **yeni arama yapma** |
@@ -48,6 +49,13 @@ Her şey Türkçe. Bugünün tarihini ortamdan al, asla tahmin etme.
 - **Alt satır:** her sonucun en altına tek satır ekle (tanışma soruları
   sırasında ekleme):
   `Diğer komutlar: /icerik plan · /icerik hafta · /icerik gündem · /icerik <konu> · /icerik incele · /icerik yardım`
+- **Soru sorma biçimi:** kullanıcıya seçim yaptıracağın her yerde (fikir
+  seçimi, "hangisini tam hazırlayayım?", "hangi günü?", tanışmadaki 3 yol)
+  `AskUserQuestion` aracı varsa onu kullan: tek seferde en fazla 4 soru, her
+  soruda 2-4 kısa seçenek, birden fazla seçilebilecekse çoklu seçim, önerdiğin
+  seçenek ilk sırada ve sonunda "(Önerilen)". Araç yoksa numaralı liste yaz ve
+  "Numarayla cevap ver, ör. `1,3 karusel 3`" de. Düğmelere sığmayan
+  seçenekleri (5-6 kanca) iki soruya böl ya da en güçlü 4'ünü göster.
 - **Komut adı:** eklenti olarak kurulduysa komut `/icerik:icerik` olarak
   görünür (ör. `/icerik:icerik plan`). Menüde ve alt satırda kullanıcının bu
   oturumda kullandığı adı yaz; normal cümleler her iki durumda da çalışır.
@@ -94,6 +102,7 @@ Başka hiçbir şey yapmadan, tam olarak şunu göster (arama yapma):
 /icerik hafta kahve      → Bu haftanın özel günleri + kahve fikirleri
 /icerik kitle            → Hesabını bir kere tanıt, öneriler sana göre olsun
 /icerik incele           → Hesabını ve benzer hesapları incele: ne tutuyor, sende ne eksik
+/icerik karne            → Ekran görüntülerinden hesap karnesi: en iyi saat, ne tuttu, ne yapmalı
 
 İpucu: "kahve" yerine kendi konunu yaz: ürün, yemek, mekan, araba, her şey.
 Kısa yol: Instagram'daki profil, istatistik ya da Reels trendleri ekranının
@@ -278,6 +287,32 @@ Kurallar:
   herkese açık arama sonuçları.
 - İçeriği değil **formatı** kopyala.
 
+### 1b. Seçim (kullanıcıya sor, sonra üret)
+Taramadan sonra fikirleri uzun uzun yazmadan önce kullanıcıya **bulduğun
+kancaları** göster ve tek seferde en fazla 3 soru sor ("Soru sorma biçimi"ne
+göre):
+
+1. **Hangilerini birleştireyim?** (birden fazla seçilebilir) Bulduğun en
+   güçlü 4-6 kanca, her biri tek satır ve tür işaretiyle:
+   🥶 mevsim · 📰 gündem · 📅 özel gün · 🎵 akım · ❓ insanların sorusu ·
+   🔁 başkasında tutan format. Ör. "🥶 Mevsim dışı: kavanoz/dondurulmuş
+   enginar", "❓ 'Enginar nasıl kararmaz?'". Seçenek olarak "Sen seç" de olsun.
+2. **Format?** Reels / Karusel / Fotoğraf / Hikaye / Karışık. kitle.md'de
+   kullandığı formatlar varsa onları önerilen (ilk) seçenek yap.
+3. **Kaç fikir?** 1 / 3 / 5 (önerilen: 3).
+
+Ton kitle.md'de yoksa 3. soru yerine ton sor (samimi / komik /
+bilgilendirici), fikir sayısını 3 kabul et.
+
+**Sormadan geç** (doğrudan üret): kullanıcı isteğinde format ya da sayı zaten
+varsa (ör. `enginar karusel 3 fikir`), "hızlı" / "sorma" / "direkt" dediyse,
+ya da bu sohbette aynı konu için seçimi zaten yaptıysa. Cevap "sen seç"
+olursa en yüksek puanlı birleşimleri sen seç.
+
+Seçimden sonra 2-6. adımları **sadece seçilen kancalarla** yap ve çıktıda
+**seçilen sayıda** kart ver (varsayılan 5 değil). Yedek fikirleri sadece
+kullanıcı isterse ver.
+
 ### 2. Birleştirme
 Konuyu her kancayla çarpıştır, en az 15 aday üret:
 - **Konu × Özel gün**: cadılar bayramı için korkunç balkabağı tatlısı
@@ -319,7 +354,7 @@ Zamanlama · Kanıt · Farklılık · Kitle uyumu · Yapılabilirlik
 **Gündem özeti**: 3-6 satır, önümüzdeki 6 haftanın kancaları ve dönen
 akımlar, kaynaklı.
 
-**En iyi 5 fikir**, her biri:
+**Fikirler** (1b'de seçilen sayıda; seçim yapılmadıysa 5), her biri:
 
 ```
 ## 1. <Fikrin adı>                                   Puan: 22/25
@@ -346,11 +381,13 @@ En iyi 5 fikri mümkünse farklı sütunlardan seç.
 - **Fotoğraf**: kadraj, ışık, arka plan, düzenleme
 - **Hikaye**: kart kart sıra ve her kartta hangi etkileşim aracı
 
-**Yedek fikirler**: 5 tane, tek satır, format + birleşim + neden.
+**Yedek fikirler**: sadece seçim yapılmadıysa ya da kullanıcı isterse;
+5 tane, tek satır, format + birleşim + neden.
 
 **Kaynaklar**: kullanılan linkler.
 
-Sonda tek soru: "Hangisini tam hazırlayayım?"
+Sonda tek soru ("Soru sorma biçimi"ne göre, seçenekler fikir adları):
+"Hangisini tam hazırlayayım?"
 
 ---
 
@@ -465,6 +502,9 @@ hiçbir şey düşünmeden takip edebilmeli.
 <çekimi/hazırlığı önceden yapılması gerekenler, hangi gün yapılmalı>
 ```
 
+inceleme.md'de en iyi paylaşım zamanı varsa tabloya "Saat" sütunu ekle ve
+her paylaşıma o günün en iyi saatini yaz; yoksa saat yazma.
+
 Boş gün bırakmak serbest; kapasiteden fazlasını önerme. Sonda tek soru:
 "Hangi günün içeriğini tam hazırlayayım?" Seçileni B modunun 6. adımındaki
 kart formatıyla hazırla.
@@ -492,6 +532,40 @@ sadece profil görüntüsüyle devam et.
 Sonra kısa özet göster ("Görüntülerden şunu anladım: …"), yanlış olan var mı
 diye sor, onay gelince kitle.md / inceleme.md'ye yaz. Görüntüde başka
 kişilerin adı, yorumu, mesajı varsa bunları kaydetme.
+
+### Hesap karnesi
+Profil + istatistik ve/veya kitle ekranı geldiyse (tanışma sırasında değil,
+kullanıcı analiz istediğinde ya da tanışma bittikten sonra bir kere) şu
+karneyi ver. Sadece görüntüde gördüğüne dayan; görüntüde olmayan bölümü
+"bunun için <hangi ekran> görüntüsünü at" diye boş bırak.
+
+```
+# 📋 Hesap karnesi: @<kullanıcı adı> · <tarih>
+
+## ⏰ En iyi paylaşım zamanı
+<Kitle ekranındaki en aktif gün ve saatler; ör. "Hafta içi 20:00-22:00,
+pazar 12:00-14:00". Kitle ekranı yoksa: "Kitle ekranını atarsan söylerim.">
+
+## 🏆 En çok tutan 3 gönderi
+| # | Gönderi | Format | Ne kadar tuttu | Neden tuttu (tahmin) |
+
+## ✅ Yapman gereken 5 şey
+1. <somut, bu hafta yapılabilir; ör. "Karuseller 2 kat daha çok kaydediliyor:
+   haftada 1 karusel ekle">
+
+## ⛔ Bırakman gereken 3 şey
+1. <ör. "Tek fotoğraf gönderileri en düşük erişimde; yerine karusel dene">
+
+## ✍️ Bio önerisi
+Şimdiki: "<...>" → Öneri: "<ilk satırda ne yaptığını söyleyen, tek çağrılı>"
+
+## 🎯 Bu hafta tek hedef
+<tek cümle>
+```
+
+Karnedeki bulguları (zaman, tutan formatlar, yapılacaklar) bilgi klasöründeki
+`inceleme.md`'ye ekle; plan (D) en iyi paylaşım zamanını "Saat" sütunu olarak
+kullanır. Sonda tek soru: "Bu karneye göre bu haftanın planını çıkarayım mı?"
 
 ---
 
