@@ -1,0 +1,14 @@
+{
+  "name": "icerik-asistani",
+  "description": "Instagram için Türkçe içerik asistanı",
+  "owner": {
+    "name": "EFBabacan"
+  },
+  "plugins": [
+    {
+      "name": "icerik",
+      "source": "./plugins/icerik",
+      "description": "Ne paylaşacağını bulur: haftalık plan, özel günler, gündem, konu fikirleri, ekran görüntüsünden öğrenme, hesap inceleme"
+    }
+  ]
+}

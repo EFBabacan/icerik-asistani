@@ -1,0 +1,11 @@
+{
+  "name": "icerik",
+  "displayName": "İçerik Asistanı",
+  "description": "Instagram için Türkçe içerik asistanı: haftalık paylaşım planı, özel günler, gündem, konu fikirleri, ekran görüntüsünden öğrenme, hesap inceleme",
+  "author": {
+    "name": "EFBabacan"
+  },
+  "homepage": "https://claude.ai/artifact/5gwgYbyjMPo9hzAXnxM21Q",
+  "repository": "https://github.com/EFBabacan/icerik-asistani",
+  "keywords": ["instagram", "icerik", "turkce", "sosyal-medya"]
+}

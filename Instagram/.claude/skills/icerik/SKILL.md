@@ -48,14 +48,25 @@ Her şey Türkçe. Bugünün tarihini ortamdan al, asla tahmin etme.
 - **Alt satır:** her sonucun en altına tek satır ekle (tanışma soruları
   sırasında ekleme):
   `Diğer komutlar: /icerik plan · /icerik hafta · /icerik gündem · /icerik <konu> · /icerik incele · /icerik yardım`
+- **Komut adı:** eklenti olarak kurulduysa komut `/icerik:icerik` olarak
+  görünür (ör. `/icerik:icerik plan`). Menüde ve alt satırda kullanıcının bu
+  oturumda kullandığı adı yaz; normal cümleler her iki durumda da çalışır.
 
 ## Önce tanışma (her şeyden önce)
 
-**Hesap bilgileri dosyası:** bu klasörde `kitle.md` yoksa (ilk kurulum ya da
-güncelleme sonrası), aynı klasördeki `kitle-sablon.md` dosyasını oku ve aynı
-başlıklarla `kitle.md` dosyasını oluştur; bu dosya boş sayılır. `kitle.md`
-kişiye özeldir, güncellemelerde ezilmez; `kitle-sablon.md` dosyasını hiç
-değiştirme.
+**İki klasör var:**
+- **Skill klasörü**: bu talimatın yüklendiği klasör (yüklenirken verilen
+  "Base directory"). İçinde `takvim.md` ve `kitle-sablon.md` var. Bu
+  klasördeki dosyaları **hiç değiştirme**; güncellemelerde yenilenir.
+- **Bilgi klasörü**: kişiye özel dosyalar (`kitle.md`, `inceleme.md`,
+  `takvim-ek.md`) burada durur, güncellemelerde silinmez. Yolu:
+  `${CLAUDE_PLUGIN_DATA}`
+  Bir üst satırda dolar işaretiyle başlayan ham yazı görüyorsan (eklenti
+  olarak değil klasörden çalışıyorsun) bilgi klasörü = skill klasörü.
+
+**Hesap bilgileri dosyası:** bilgi klasöründe `kitle.md` yoksa (ilk kurulum),
+skill klasöründeki `kitle-sablon.md` dosyasını oku ve aynı başlıklarla bilgi
+klasöründe `kitle.md` oluştur; bu dosya boş sayılır.
 
 kitle.md boş ya da şablon halindeyse kullanıcı **ne yazarsa yazsın**
 (yardım menüsü hariç) önce **K. Kitle tanıtma**'yı yap; bitince kullanıcının
@@ -96,7 +107,7 @@ Kendini birkaç cümleyle yazman yeter (ya da `/icerik kitle`)."
 
 Amaç: kullanıcı hiçbir dosyaya dokunmadan `kitle.md` dolsun.
 
-1. bu skill'in klasöründeki (yüklenirken verilen "Base directory") `kitle.md` dosyasını oku; doluysa özetini göster
+1. bilgi klasöründeki `kitle.md` dosyasını oku; doluysa özetini göster
    ve "neyi değiştirelim?" diye sor.
 2. Boşsa şu karşılamayla başla (aynen, kısa):
 
@@ -146,19 +157,19 @@ Amaç: kullanıcı hiçbir dosyaya dokunmadan `kitle.md` dolsun.
 
 ## Hazırlık (A, B, C, D modları)
 
-- bu skill'in klasöründeki (yüklenirken verilen "Base directory") `kitle.md` dosyasını oku. Hesabın konusu, kitlesi,
+- bilgi klasöründeki `kitle.md` dosyasını oku. Hesabın konusu, kitlesi,
   hedefi, "asla yapmam" dedikleri, girmediği konular ve kullandığı formatlar
   buradan gelir. Boş ya da şablon halindeyse "Önce tanışma"ya bak; kullanıcı
   tanışmayı geçtiyse genel bir hesap varsay ve sonda tek satır not düş:
   "Hesabını `/icerik kitle` ile tanıtırsan öneriler sana göre keskinleşir."
-- aynı klasördeki `takvim.md` dosyasını oku.
+- skill klasöründeki `takvim.md` dosyasını oku; bilgi klasöründe `takvim-ek.md` varsa onu da oku (kullanıcının eklediği günler).
 - **Hareketli günleri doğrula.** Dini günler (kandiller, Ramazan, bayramlar,
   arife), Anneler/Babalar Günü, Efsane Cuma gibi tarihi her yıl değişen
   günlerin bu yılki tarihini aramayla kontrol et. Dini günler için kaynak
   Diyanet'in dini günler takvimi. takvim.md'deki "~" işaretli tarihler
   yaklaşıktır, doğrulamadan kesin diye yazma.
 
-- Aynı klasörde `inceleme.md` varsa oku (son hesap incelemesinin bulguları:
+- Bilgi klasöründe `inceleme.md` varsa oku (son hesap incelemesinin bulguları:
   ne tuttu, hangi kancalar çalıştı). 60 günden eskiyse "yenilemek için
   `/icerik incele`" notu düş.
 
@@ -203,7 +214,7 @@ gibi) ayrı listele, çünkü içerik genelde 1-2 hafta önceden hazırlanır.
 2. takvim.md'de olmayanlar için kısa bir arama: "<bu ay> önemli günler",
    "<bu hafta> belirli gün ve haftalar". Listede eksik olan önemli bir gün
    bulursan tabloya ekle ve sonda sor: "Bu günü takvimine kalıcı ekleyeyim
-   mi?" Evet derse takvim.md'de doğru ayın tablosuna ekle.
+   mi?" Evet derse bilgi klasöründeki `takvim-ek.md` dosyasına (yoksa oluştur) "Tarih | Gün | Tür" satırı olarak ekle.
 3. Kısa gündem kontrolü: bu hafta Türkiye'de içerik açısından öne çıkan
    1-3 olay (maç, dizi finali, hava, büyük indirim). Kaynaklı.
 
@@ -549,7 +560,7 @@ Son 12 gönderi: <format dağılımı> · ana konu dengesi: ...
 ```
 
 Bulguları (tarih, tutan kanca türleri, tutan formatlar, bio önerisi, kat
-tablosu özeti) aynı klasördeki `inceleme.md` dosyasına yaz; eskisinin üzerine
+tablosu özeti) bilgi klasöründeki `inceleme.md` dosyasına yaz; eskisinin üzerine
 yaz. Sonraki fikir ve planlar bu dosyayı kullanır. Sonda tek soru:
 "Hangi fikri tam hazırlayayım?"
 

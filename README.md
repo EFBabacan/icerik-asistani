@@ -31,7 +31,24 @@ görüntüsü at ya da soru-cevap).
 3. Proje içinde yeni sohbet, **Web araması** açık, `merhaba` yaz
 4. Tanışma sonunda verilen **HESABIM** yazısını Talimatlar'ın en altına yapıştır
 
-### 💻 Bilgisayar (Claude masaüstü uygulaması, Code sekmesi)
+### 💻 Bilgisayar, yol A: eklenti (en kolay, her oturumda çalışır)
+Claude uygulamasında **Code** sekmesinde yeni bir oturum aç ve sırayla yaz:
+```
+/plugin marketplace add EFBabacan/icerik-asistani
+```
+```
+/plugin install icerik@icerik-asistani
+```
+Sonra yeni bir oturum aç ve `merhaba` ya da `/icerik:icerik yardım` yaz
+(`/ic` yazınca listede çıkar).
+
+- **Güncelleme:** `/plugin marketplace update icerik-asistani`, ardından yeni oturum.
+- **Hesap bilgilerin** eklentinin kendi bilgi klasöründe (`~/.claude/plugins/data/…`)
+  durur; güncellemede silinmez.
+- İnternette arama ve bilgi kaydetme için ilk seferlerde izin sorabilir:
+  **"Evet, bir daha sorma"** de.
+
+### 💻 Bilgisayar, yol B: klasör (sade menü ve hazır izinlerle)
 ```bash
 git clone https://github.com/EFBabacan/icerik-asistani.git
 ```
@@ -41,10 +58,15 @@ Claude uygulamasında **Code** sekmesi → yeni oturum → klasör olarak
 
 Asistan sadece `Instagram` klasöründe açılan oturumlarda çalışır. Bu klasörde
 arama ve kaydetme izinleri hazırdır, gereksiz ek komutlar gizlenir.
+Güncelleme: `git pull`.
+
+> İkisini birden kurma: aynı asistan iki kez görünür.
 
 ## Güncelleme
-- **Bilgisayar:** `git pull`. Hesap bilgilerin (`kitle.md`) ve inceleme
-  sonuçların (`inceleme.md`) repoda değildir, güncellemede silinmez.
+- **Eklenti:** `/plugin marketplace update icerik-asistani`, sonra yeni oturum.
+- **Klasör:** `git pull`. Hesap bilgilerin (`kitle.md`), inceleme
+  sonuçların (`inceleme.md`) ve eklediğin günler (`takvim-ek.md`) repoda
+  değildir, güncellemede silinmez.
 - **Telefon:** yeni talimatı kopyala, projedeki eskisinin yerine yapıştır.
   En alttaki **HESABIM** kısmını önce bir kenara al, sonra geri ekle.
 
@@ -57,6 +79,13 @@ arama ve kaydetme izinleri hazırdır, gereksiz ek komutlar gizlenir.
 | `Instagram/.claude/skills/icerik/kitle-sablon.md` | Hesap bilgileri şablonu (asistan `kitle.md`'yi bundan oluşturur) |
 | `Instagram/.claude/settings.json` | Bu klasöre özel izinler ve sade menü |
 | `telefon-surumu/` | Claude projesine yapıştırılacak talimat ve kısa kurulum notu |
+| `.claude-plugin/marketplace.json` | Eklenti pazarı tanımı (`/plugin marketplace add`) |
+| `plugins/icerik/` | Eklenti; içindeki skill, `Instagram/.claude/skills/icerik`'in kopyasıdır |
+| `scripts/esitle.sh` | Geliştirici için: değişiklikten sonra eklenti kopyasını eşitler |
+
+**Geliştirici notu:** asıl kaynak `Instagram/.claude/skills/icerik`. Orada
+değişiklik yaptıktan sonra `bash scripts/esitle.sh` çalıştır, ikisini birlikte
+commit'le.
 
 ## Geri bildirim
 Beğenmediğin, yanlış ya da eksik bir şey görürsen

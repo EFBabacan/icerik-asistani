@@ -76,6 +76,7 @@ yeni oturumu yine `Instagram` klasöründe aç.
 | `README.md` | Bu kılavuz | Hayır |
 
 ## Sürüm
+- 1.0: eklenti olarak kurulum (/plugin install icerik@icerik-asistani), ayrı bilgi klasörü
 - 0.9: "tam hazırla" (aramasız), limit dostu kurallar, kullanıcı adı, küçük düzeltmeler
 - 0.8: önce tanışma (serbest yazı / ekran görüntüsü / soru-cevap), hedef ve "asla yapmam" listesi
 - 0.7: ekran görüntüsünden öğrenme, hesap inceleme (`/icerik incele`)

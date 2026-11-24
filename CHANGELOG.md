@@ -1,5 +1,12 @@
 # Sürüm notları
 
+## 1.0
+- Eklenti olarak kurulum: `/plugin marketplace add EFBabacan/icerik-asistani`,
+  `/plugin install icerik@icerik-asistani`
+- Kişiye özel dosyalar (hesap bilgileri, inceleme, eklenen günler) ayrı bir
+  bilgi klasöründe; güncellemelerde silinmez
+- Kullanıcının eklediği özel günler `takvim-ek.md`'ye yazılır, ana takvim değişmez
+
 ## 0.9
 - Aramasız "tam hazırla": seçilen fikir ya da gün için çekim sırası, slayt metni, açıklama
 - Limit dostu kurallar: aynı gün aramayı tekrarlamaz, "kısa" ve "aramadan" isteklerine uyar
